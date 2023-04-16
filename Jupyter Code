@@ -1,0 +1,217 @@
+!pip install pandas
+
+import pandas as pd
+df = pd.read_csv('SomethingReal.csv')
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline
+
+import pandas as pd
+df = pd.read_csv('SomethingReal.csv')
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline
+
+import pandas as pd
+df = pd.read_csv('Documents/MEE460 Stuff/SomethingReal.csv')
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline
+
+import pandas as pd
+df = pd.read_csv('Documents/MEE460 Stuff/SomethingReal.csv')
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline
+
+sns.scatterplot(x="AOA", y="CL Open", data=df)
+sns.scatterplot(x="AOA", y="CL Closed", data=df)
+df["diff"] = df["CL Open"]-df['CL Closed"]
+sns.scatterplot(x="AOA", y="diff", data=df)
+plt.title("Angle of Attack vs CL Open")
+plt.xlabel("Angle of Attack")
+plt.ylabel("CL Open")
+plt.show()
+
+sns.scatterplot(x="AOA", y="CL Closed", data=df)
+plt.title("AOA vs. CL Closed")
+plt.xlabel("AOA")
+plt.ylabel("CL Closed")
+plt.show()
+
+import numpy as np
+from sklearn.linear_model import LinearRegression
+import pandas as pd
+df = pd.read_csv('Documents/MEE460 Stuff/SomethingReal.csv')
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline
+# Generate some random data for the model
+x = np.array([1, 2, 3, 4, 5])
+y = np.array([2, 4, 6, 8, 10])
+# Reshape the data to make it a 2D array for scikit-learn
+x = x.reshape((-1, 1))
+# Create the linear regression model and fit it to the data
+model = LinearRegression()
+model.fit(x, y)
+
+!pip install numpy
+import numpy as np
+from sklearn.linear_model import LinearRegression
+import pandas as pd
+df = pd.read_csv('Documents/MEE460 Stuff/SomethingReal.csv')
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline
+# Generate some random data for the model
+x = np.array([1, 2, 3, 4, 5])
+y = np.array([2, 4, 6, 8, 10])
+# Reshape the data to make it a 2D array for scikit-learn
+x = x.reshape((-1, 1))
+# Create the linear regression model and fit it to the data
+model = LinearRegression()
+model.fit(x, y)
+
+import pandas as pd 
+import seaborn as sns
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import KFold
+from sklearn.model_selection import *
+from sklearn.metrics import r2_score
+import numpy as np
+df = pd.read_csv('Documents/MEE460 Stuff/SomethingReal.csv')
+X = df[['AOA']]
+y = df['CL Open']
+r2_scores = []
+k = 10
+model = LinearRegression()
+for i in range(k):
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, shuffle=True)
+    model.fit(X_train, y_train)
+    #y_pred = model.predict(X_test)
+    r2 = model.score(X_test, y_test)
+    r2_scores.append(r2)
+sum(r2_scores)/k
+rfinal = model.fit(X, y)
+model.coef_
+
+r2_scores
+
+import numpy as np
+from scipy.optimize import minimize_scalar
+# Define the objective function
+def objective_func(AOA):
+    # Calculate the coefficient of lift (CL) as a function of the angle of attack (AOA)
+    # Use experimental data or theoretical models to define this function
+    CL = some_function_of_AOA(AOA)
+    return -CL  # Minimize the negative of CL to maximize CL
+# Define any constraints
+AOA_bounds = (-10, 10)  # AOA must be between -10 and 10 degrees
+# Run the optimization algorithm
+result = minimize_scalar(objective_func, bounds=AOA_bounds, method='bounded')
+# Analyze the results
+optimal_AOA = result.x
+optimal_CL = -result.fun  # Convert back to positive CL value
+print(f"Optimal AOA: {optimal_AOA:.2f} degrees")
+print(f"Optimal CL: {optimal_CL:.2f}")
+
+sns.scatterplot(x="AOA", y="CL Open", data=df)
+sns.scatterplot(x="AOA", y="CL Closed", data=df)
+df["diff"] = df["CL Open"]-df['CL Closed"]
+sns.scatterplot(x="AOA", y="diff", data=df)
+plt.title("Angle of Attack vs CL Open")
+plt.xlabel("Angle of Attack")
+plt.ylabel("CL Open")
+
+import pandas as pd
+df = pd.read_csv('Documents/MEE460 Stuff/SomethingReal.csv')
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline
+
+sns.scatterplot(x="AOA", y="CL Open", data=df)
+sns.scatterplot(x="AOA", y="CL Closed", data=df)
+df["diff"] = df["CL Open"]-df["CL Closed"]
+sns.scatterplot(x="AOA", y="diff", data=df)
+plt.title("Angle of Attack vs CL Open")
+plt.xlabel("Angle of Attack")
+plt.ylabel("CL Open")
+
+sns.scatterplot(x="AOA", y="CL Closed", data=df)
+plt.title("Angle of Attack vs CL Closed")
+plt.xlabel("Angle of Attack")
+plt.ylabel("CL Closed")
+
+sns.scatterplot(x="tPA_closed", y="CL Open", data=df, )
+plt.title("Time vs CL Open")
+plt.xlabel("Time")
+plt.ylabel("CL Open")
+
+sns.scatterplot(x="tPA_closed", y="CL Closed", data=df, )
+plt.title("Time vs CL Closed")
+plt.xlabel("Time")
+plt.ylabel("CL Closed")
+
+sns.scatterplot(x="tPA_closed", y="AOA", data=df, )
+plt.title("Time vs AOA")
+plt.xlabel("Time")
+plt.ylabel("AOA")
+
+sns.scatterplot(x="CL Open", y="CL Closed", data=df, )
+plt.title("CL Closed vs CL Open")
+plt.xlabel("CL Open")
+plt.ylabel("CL Closed")
+
+import pandas as pd
+import seaborn as sns
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import KFold
+from sklearn.model_selection import *
+from sklearn.metrics import r2_score
+import numpy as np
+import matplotlib.pyplot as plt
+#data = pd.read_csv"MEE 460 Water Tunnel Data.csv")
+X = df[["CL Open"]]
+y = df["AOA"]
+r2_scores = []
+k = 10
+lr_model = LinearRegression()
+for i in range(k):
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, shuffle=True)
+    lr_model.fit(X_train, y_train)
+    #y_pred = lr_model.predict(X_test)
+    r2 = lr_model.score(X_test, y_test)
+    r2_scores.append(r2)
+sum(r2_scores)/k
+r2_scores
+rfinal = lr_model.fit(X, y)
+lr_model.score(X, y)
+lr_model.coef_
+lr_model.intercept_
+ypred = lr_model.predict(X)
+dp = pd.DataFrame(ypred) # Create DataFrame
+dp.to_csv("output.csv", index=False)
+plt.plot(y,ypred, "o",markersize=1, linewidth=0)
+
+X = df[["diff"]]
+y = df["AOA"]
+r2_scores = []
+k = 10
+lr_model = LinearRegression()
+for i in range(k):
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, shuffle=True)
+    lr_model.fit(X_train, y_train)
+    #y_pred = lr_model.predict(X_test)
+    r2 = lr_model.score(X_test, y_test)
+    r2_scores.append(r2)
+sum(r2_scores)/k
+r2_scores
+rfinal = lr_model.fit(X, y)
+lr_model.score(X, y)
+lr_model.coef_
+lr_model.intercept_
+ypred = lr_model.predict(X)
+ypred.shape
+dp = pd.DataFrame(ypred) # Create DataFrame
+dp.to_csv("output.csv", index=False)
+plt.plot(y,ypred, "o",markersize=1, linewidth=1)
